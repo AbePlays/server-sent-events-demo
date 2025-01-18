@@ -1,3 +1,4 @@
+import cors from 'cors'
 import crypto from 'node:crypto'
 import express from 'express'
 
@@ -7,12 +8,13 @@ let clients = []
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 app.get('/', (_, res) => {
   return res.status(200).json({ ok: true })
 })
 
-app.post('/event', (_, res) => {
+app.get('/event', (_, res) => {
   const formattedDate = new Intl.DateTimeFormat('en-GB', {
     dateStyle: 'medium',
     timeStyle: 'medium',
