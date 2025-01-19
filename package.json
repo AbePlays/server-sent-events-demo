@@ -1,0 +1,13 @@
+{
+  "name": "server-sent-events-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "pnpm install",
+    "start:frontend": "pnpm --filter frontend dev",
+    "start:backend": "pnpm --filter backend start",
+    "start": "pnpm run \"/start:/\"",
+    "build:frontend": "pnpm --filter frontend build",
+    "build": "pnpm run -r build"
+  }
+}

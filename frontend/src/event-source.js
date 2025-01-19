@@ -6,8 +6,12 @@ export function setupEventSource() {
     return
   }
 
+  const BACKEND_BASE_URL = import.meta.env.PROD
+    ? 'https://sse-node.fly.dev'
+    : 'http://localhost:3000'
+
   // Create EventSource connection
-  const eventSource = new EventSource('https://sse-node.fly.dev/events')
+  const eventSource = new EventSource(`${BACKEND_BASE_URL}/events`)
 
   // Handle successful connection
   eventSource.onopen = () => {

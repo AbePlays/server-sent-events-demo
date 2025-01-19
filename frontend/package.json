@@ -1,5 +1,5 @@
 {
-  "name": "server-sent-events-client",
+  "name": "frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
