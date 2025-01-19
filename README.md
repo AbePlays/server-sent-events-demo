@@ -37,7 +37,7 @@ pnpm install:all
 3. Start the servers:
 
 ```bash
-npm start
+pnpm start
 ```
 
 ## How It Works
