@@ -7,7 +7,7 @@ export function setupEventSource() {
   }
 
   // Create EventSource connection
-  const eventSource = new EventSource('http://localhost:3000/events')
+  const eventSource = new EventSource('https://sse-node.fly.dev/events')
 
   // Handle successful connection
   eventSource.onopen = () => {
