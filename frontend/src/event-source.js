@@ -23,12 +23,10 @@ export function setupEventSource() {
     try {
       const data = JSON.parse(event.data)
 
-      if (Array.isArray(data)) {
-        for (const item of data) {
-          appendEvent(item)
-        }
+      if ('timestamp' in data) {
+        appendEvent(data.timestamp)
       } else {
-        appendEvent(data)
+        console.error('Unknown event data:', data)
       }
     } catch (error) {
       console.error('Failed to parse event data:', error)
@@ -45,6 +43,11 @@ export function setupEventSource() {
   function appendEvent(data) {
     const text = document.createElement('li')
     text.textContent = `${data}`
+    const eventsLength = eventsContainer.children.length
+
+    if (eventsLength >= 10) {
+      eventsContainer.removeChild(eventsContainer.children[0])
+    }
     eventsContainer.appendChild(text)
   }
 }
